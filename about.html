@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - MacroVision</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#ffffff',
+                        dark: {
+                            900: '#000000',
+                            800: '#080808',
+                            700: '#181818',
+                            600: '#282828',
+                            500: '#383838',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .bg-gradient-dark {
+            background: radial-gradient(circle at top right, #181818 0%, #000000 70%);
+        }
+        .dashboard-glare {
+            position: relative;
+            overflow: hidden;
+        }
+        .dashboard-glare::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+            transform: rotate(30deg);
+            z-index: 0;
+        }
+        .feature-card {
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2);
+        }
+        .value-card {
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+        .value-card:hover {
+            border: 1px solid rgba(255,255,255,0.15);
+            transform: translateY(-2px);
+        }
+        .hero-section {
+            background: linear-gradient(135deg, rgba(255,255,255,0.02) 0%, rgba(0,0,0,0.5) 100%);
+        }
+        .stats-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.01) 100%);
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+    </style>
+</head>
+<body class="bg-gradient-dark text-gray-200 font-sans">
+    <!-- Header/Navigation -->
+    <header class="bg-dark-800 border-b border-gray-800 sticky top-0 z-50">
+        <nav class="container mx-auto px-4 py-4 flex items-center justify-between">
+            <div class="flex items-center space-x-2">
+                <img src="logo.png" alt="MacroVision Logo" class="w-8 h-8 rounded-md">
+                <span class="text-xl font-bold">Macro<span class="text-primary">Vision</span></span>
+            </div>
+            
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="./index.html" class="hover:text-primary transition">Home</a>
+                <a href="./solutions.html" class="hover:text-primary transition">Solutions</a>
+                <a href="./about.html" class="text-primary">About</a>
+                <a href="./contact.html" class="hover:text-primary transition">Contact</a>
+            </div>
+            
+            <button id="burger-button" class="md:hidden text-2xl text-white">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden fixed inset-0 bg-dark-900 z-50 p-8 overflow-y-auto">
+        <div class="flex justify-end">
+            <button id="close-menu" class="text-white text-3xl">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="flex flex-col items-center space-y-8 mt-20">
+            <a href="./index.html" class="text-white text-xl hover:text-primary transition">Home</a>
+            <a href="./solutions.html" class="text-white text-xl hover:text-primary transition">Solutions</a>
+            <a href="./about.html" class="text-primary text-xl">About</a>
+            <a href="./contact.html" class="text-white text-xl hover:text-primary transition">Contact</a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section py-20">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <h1 class="text-5xl md:text-6xl font-bold mb-6">
+                    About <span class="text-primary">MacroVision</span>
+                </h1>
+                <p class="text-xl text-gray-400 leading-relaxed">
+                    We transform businesses through intelligent automation, cutting-edge AI solutions, and seamless CRM integrations that drive real growth and efficiency.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="py-20 bg-dark-700">
+        <div class="container mx-auto px-4">
+            <div class="max-w-6xl mx-auto">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h2 class="text-4xl font-bold mb-6">Our Mission</h2>
+                        <p class="text-gray-300 text-lg leading-relaxed mb-6">
+                            At MacroVision, we believe every business deserves access to enterprise-level intelligence and automation. Our mission is to democratize advanced business technology, making it accessible and actionable for companies of all sizes.
+                        </p>
+                        <p class="text-gray-300 text-lg leading-relaxed">
+                            We envision a world where business decisions are powered by real-time insights, where repetitive tasks are automated, and where customer relationships are nurtured through intelligent systems that truly understand your business needs.
+                        </p>
+                    </div>
+                    <div class="dashboard-glare bg-dark-600 rounded-xl p-8 relative">
+                        <div class="grid grid-cols-2 gap-6">
+                            <div class="stats-card rounded-lg p-6 text-center">
+                                <i class="fas fa-robot text-3xl text-primary mb-3"></i>
+                                <h4 class="font-bold text-lg">AI-Powered</h4>
+                                <p class="text-gray-400 text-sm">Intelligent automation that learns and adapts</p>
+                            </div>
+                            <div class="stats-card rounded-lg p-6 text-center">
+                                <i class="fas fa-chart-line text-3xl text-primary mb-3"></i>
+                                <h4 class="font-bold text-lg">Data-Driven</h4>
+                                <p class="text-gray-400 text-sm">Insights that drive meaningful decisions</p>
+                            </div>
+                            <div class="stats-card rounded-lg p-6 text-center">
+                                <i class="fas fa-users text-3xl text-primary mb-3"></i>
+                                <h4 class="font-bold text-lg">Customer-Centric</h4>
+                                <p class="text-gray-400 text-sm">CRM solutions that build relationships</p>
+                            </div>
+                            <div class="stats-card rounded-lg p-6 text-center">
+                                <i class="fas fa-cogs text-3xl text-primary mb-3"></i>
+                                <h4 class="font-bold text-lg">Seamless</h4>
+                                <p class="text-gray-400 text-sm">Integration that just works</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What We Do Section -->
+    <section class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold mb-6">What We Do</h2>
+                    <p class="text-gray-400 text-xl max-w-3xl mx-auto">
+                        We specialize in three core areas that transform how businesses operate, engage with customers, and make decisions.
+                    </p>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-8 relative">
+                    <div class="absolute inset-0 pointer-events-none">
+                        <div class="absolute inset-x-0 top-1/2 h-px bg-gradient-to-r from-transparent via-primary/10 to-transparent"></div>
+                        <div class="absolute left-1/2 top-0 w-px h-full bg-gradient-to-b from-transparent via-primary/10 to-transparent"></div>
+                    </div>
+                    
+                    <!-- Dashboard Solutions -->
+                    <div class="solution-card bg-dark-800/50 backdrop-blur-sm rounded-xl p-8 border border-dark-700 hover:border-primary/30 relative transition-all duration-300 shadow-xl hover:shadow-primary/10 flex flex-col">
+                        <div class="relative z-10">
+                            <div class="flex flex-col gap-4 mb-8">
+                                <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-primary/10 to-primary/20 flex items-center justify-center border border-primary/20">
+                                    <i class="fas fa-chart-bar text-2xl text-primary"></i>
+                                </div>
+                                <h3 class="text-2xl font-semibold text-white">Business Intelligence</h3>
+                                <div class="w-12 h-1 bg-primary rounded-full"></div>
+                            </div>
+                            
+                            <p class="text-gray-400 mb-8">
+                                Stop drowning in data. Start dominating with it. Our custom dashboards transform your raw numbers into crystal-clear insights that drive 10x decision-making speed.
+                            </p>
+                            <ul class="space-y-3 mb-8">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-400 mt-1 mr-3"></i>
+                                    <span class="text-gray-300">Real-time KPI tracking that alerts you before problems happen</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-400 mt-1 mr-3"></i>
+                                    <span class="text-gray-300">Predictive analytics that show you tomorrow's opportunities today</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-400 mt-1 mr-3"></i>
+                                    <span class="text-gray-300">One-click reports that save 20+ hours per week</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div> <!-- Close first card -->
+    
+                    <!-- Automation -->
+                    <div class="solution-card bg-dark-800/50 backdrop-blur-sm rounded-xl p-8 border border-dark-700 hover:border-primary/30 relative transition-all duration-300 shadow-xl hover:shadow-primary/10 flex flex-col">
+                        <div class="relative z-10">
+                            <div class="flex flex-col gap-4 mb-8">
+                                <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-primary/10 to-primary/20 flex items-center justify-center border border-primary/20">
+                                    <i class="fas fa-robot text-2xl text-primary"></i>
+                                </div>
+                                <h3 class="text-2xl font-semibold text-white">Process Automation</h3>
+                                <div class="w-12 h-1 bg-primary rounded-full"></div>
+                            </div>
+                            <p class="text-gray-400 mb-6">
+                                Excel is where profits go to die. Our automated pipelines eliminate human error, slash processing time by 95%, and scale infinitely with your business growth.
+                            </p>
+                            <ul class="space-y-3 mb-8">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-400 mt-1 mr-3"></i>
+                                    <span class="text-gray-300">Zero-touch workflows that run 24/7 without supervision</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-400 mt-1 mr-3"></i>
+                                    <span class="text-gray-300">Instant data synchronization across all your systems</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-400 mt-1 mr-3"></i>
+                                    <span class="text-gray-300">ROI guaranteed within 60 days or your money back</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div> <!-- Close automation card -->
+    
+                    <!-- AI Agents -->
+                    <div class="solution-card bg-dark-800/50 backdrop-blur-sm rounded-xl p-8 border border-dark-700 hover:border-primary/30 relative transition-all duration-300 shadow-xl hover:shadow-primary/10 flex flex-col">
+                        <div class="relative z-10">
+                            <div class="flex flex-col gap-4 mb-8">
+                                <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-primary/10 to-primary/20 flex items-center justify-center border border-primary/20">
+                                    <i class="fas fa-brain text-2xl text-primary"></i>
+                                </div>
+                                <h3 class="text-2xl font-semibold text-white">AI Solutions</h3>
+                                <div class="w-12 h-1 bg-primary rounded-full"></div>
+                            </div>
+                            <p class="text-gray-400 mb-6">
+                                Deploy an army of tireless AI workers that gather intelligence, analyze competitors, and execute complex tasks while you sleep. The future of business is autonomous.
+                            </p>
+                            <ul class="space-y-3 mb-8">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-400 mt-1 mr-3"></i>
+                                    <span class="text-gray-300">Market intelligence scrapers that monitor competitors 24/7</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-400 mt-1 mr-3"></i>
+                                    <span class="text-gray-300">Custom AI agents trained on your business logic</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-400 mt-1 mr-3"></i>
+                                    <span class="text-gray-300">Self-improving algorithms that get smarter every day</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div> <!-- Close AI card -->
+    
+                    <!-- Place AI card here if you want to keep all 3 cards -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Values Section -->
+    <section class="py-20 bg-dark-700">
+        <div class="container mx-auto px-4">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold mb-6">Our Values</h2>
+                    <p class="text-gray-400 text-xl max-w-3xl mx-auto">
+                        These principles guide everything we do and shape how we build solutions for our clients.
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="value-card bg-dark-600 rounded-xl p-6 text-center">
+                        <i class="fas fa-lightbulb text-3xl text-primary mb-4"></i>
+                        <h4 class="font-bold text-lg mb-3">Innovation</h4>
+                        <p class="text-gray-400 text-sm">We constantly push boundaries to deliver cutting-edge solutions that drive real business value.</p>
+                    </div>
+                    
+                    <div class="value-card bg-dark-600 rounded-xl p-6 text-center">
+                        <i class="fas fa-handshake text-3xl text-primary mb-4"></i>
+                        <h4 class="font-bold text-lg mb-3">Partnership</h4>
+                        <p class="text-gray-400 text-sm">We believe in true collaboration, working alongside our clients as trusted partners in their success.</p>
+                    </div>
+                    
+                    <div class="value-card bg-dark-600 rounded-xl p-6 text-center">
+                        <i class="fas fa-star text-3xl text-primary mb-4"></i>
+                        <h4 class="font-bold text-lg mb-3">Excellence</h4>
+                        <p class="text-gray-400 text-sm">We deliver exceptional quality in every project, ensuring solutions that exceed expectations.</p>
+                    </div>
+                    
+                    <div class="value-card bg-dark-600 rounded-xl p-6 text-center">
+                        <i class="fas fa-shield-alt text-3xl text-primary mb-4"></i>
+                        <h4 class="font-bold text-lg mb-3">Integrity</h4>
+                        <p class="text-gray-400 text-sm">We operate with complete transparency and honesty in all our business relationships.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Approach Section -->
+    <section class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold mb-6">Our Approach</h2>
+                    <p class="text-gray-400 text-xl max-w-3xl mx-auto">
+                        We follow a proven methodology that ensures successful implementation and long-term value for your business.
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <span class="text-2xl font-bold text-primary">1</span>
+                        </div>
+                        <h4 class="text-xl font-bold mb-4">Discovery</h4>
+                        <p class="text-gray-400">We dive deep into your business processes, challenges, and goals to understand exactly what you need.</p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <span class="text-2xl font-bold text-primary">2</span>
+                        </div>
+                        <h4 class="text-xl font-bold mb-4">Strategy</h4>
+                        <p class="text-gray-400">We design a comprehensive strategy that aligns technology solutions with your business objectives.</p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <span class="text-2xl font-bold text-primary">3</span>
+                        </div>
+                        <h4 class="text-xl font-bold mb-4">Implementation</h4>
+                        <p class="text-gray-400">We build and deploy solutions with minimal disruption to your daily operations and maximum impact.</p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <span class="text-2xl font-bold text-primary">4</span>
+                        </div>
+                        <h4 class="text-xl font-bold mb-4">Optimization</h4>
+                        <p class="text-gray-400">We continuously monitor, measure, and optimize your solutions to ensure ongoing success and growth.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-dark-700">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-4xl font-bold mb-6">Ready to Transform Your Business?</h2>
+                <p class="text-xl text-gray-400 mb-8">
+                    Let's discuss how MacroVision can help you automate processes, enhance customer relationships, and leverage AI to drive growth.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="./contact.html" class="bg-primary text-dark-900 px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 transition text-lg">
+                        Get Started Today
+                    </a>
+                    <a href="./solutions.html" class="border border-primary text-primary px-8 py-4 rounded-xl font-semibold hover:bg-primary hover:text-dark-900 transition text-lg">
+                        Explore Solutions
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-dark-900 border-t border-gray-800 pt-16 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2">
+                        <img src="logo.png" alt="MacroVision Logo" class="w-8 h-8 rounded-md">
+                        <span class="text-xl font-bold">Macro<span class="text-primary">Vision</span></span>
+                    </div>
+                    <p class="mt-4 text-gray-500">
+                        Real-time business intelligence tailored to your growth.
+                    </p>
+                    <div class="mt-6 flex space-x-4">
+                        <a href="#" class="text-gray-500 hover:text-primary transition"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="text-gray-500 hover:text-primary transition"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-lg mb-3">Solutions</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-500 hover:text-primary transition">AI Agents</a></li>
+                        <li><a href="#" class="text-gray-500 hover:text-primary transition">Data Integration</a></li>
+                        <li><a href="#" class="text-gray-500 hover:text-primary transition">Automation</a></li>
+                        <li><a href="#" class="text-gray-500 hover:text-primary transition">Dashboard Solutions</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-lg mb-3">Contact Us</h4>
+                    <ul class="space-y-3">
+                        <li class="text-gray-500"><i class="fas fa-envelope mr-2 text-primary"></i>contact@macrovision.io</li>
+                        <li class="text-gray-500"><i class="fas fa-phone mr-2 text-primary"></i>+961 70 832 510</li>
+                        <li class="text-gray-500"><i class="fas fa-map-marker-alt mr-2 text-primary"></i>Beirut, Lebanon</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-600">© 2025 MacroVision. All rights reserved.</p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="#" class="text-gray-600 hover:text-primary transition">Privacy Policy</a>
+                    <a href="#" class="text-gray-600 hover:text-primary transition">Terms of Service</a>
+                    <a href="#" class="text-gray-600 hover:text-primary transition">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const burgerButton = document.getElementById('burger-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeMenu = document.getElementById('close-menu');
+
+        burgerButton.addEventListener('click', () => {
+            mobileMenu.classList.remove('hidden');
+        });
+
+        closeMenu.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+        });
+    </script>
+</body>
+</html>
