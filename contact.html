@@ -167,99 +167,53 @@
         <div class="container mx-auto px-4">
             <div class="grid lg:grid-cols-3 gap-12">
                 <!-- Contact Form -->
-                <div class="lg:col-span-2">
+                <div class="lg:col-span-3">
                     <div class="contact-form rounded-2xl p-8 lg:p-12">
                         <h2 class="text-3xl font-bold mb-8">Send us a message</h2>
-                        <form class="space-y-6">
+                        
+                        <!-- Success/Error Messages -->
+                        <div id="form-message" class="mb-6 p-4 rounded-lg hidden"></div>
+                        
+                        <form id="contact-form" class="space-y-6">
                             <div class="grid md:grid-cols-2 gap-6">
                                 <div>
                                     <label class="block text-sm font-medium mb-2">First Name *</label>
-                                    <input type="text" class="w-full px-4 py-3 bg-dark-700 border border-gray-600 rounded-lg focus:outline-none input-glow transition-all" placeholder="John">
+                                    <input type="text" id="firstName" name="firstName" required class="w-full px-4 py-3 bg-dark-700 border border-gray-600 rounded-lg focus:outline-none input-glow transition-all" placeholder="John">
                                 </div>
                                 <div>
                                     <label class="block text-sm font-medium mb-2">Last Name *</label>
-                                    <input type="text" class="w-full px-4 py-3 bg-dark-700 border border-gray-600 rounded-lg focus:outline-none input-glow transition-all" placeholder="Doe">
+                                    <input type="text" id="lastName" name="lastName" required class="w-full px-4 py-3 bg-dark-700 border border-gray-600 rounded-lg focus:outline-none input-glow transition-all" placeholder="Doe">
                                 </div>
                             </div>
                             
                             <div class="grid md:grid-cols-2 gap-6">
                                 <div>
                                     <label class="block text-sm font-medium mb-2">Email *</label>
-                                    <input type="email" class="w-full px-4 py-3 bg-dark-700 border border-gray-600 rounded-lg focus:outline-none input-glow transition-all" placeholder="john@company.com">
+                                    <input type="email" id="email" name="email" required class="w-full px-4 py-3 bg-dark-700 border border-gray-600 rounded-lg focus:outline-none input-glow transition-all" placeholder="john@company.com">
                                 </div>
                                 <div>
                                     <label class="block text-sm font-medium mb-2">Phone</label>
-                                    <input type="tel" class="w-full px-4 py-3 bg-dark-700 border border-gray-600 rounded-lg focus:outline-none input-glow transition-all" placeholder="+1 (555) 123-4567">
+                                    <input type="tel" id="phone" name="phone" class="w-full px-4 py-3 bg-dark-700 border border-gray-600 rounded-lg focus:outline-none input-glow transition-all" placeholder="+1 (555) 123-4567">
                                 </div>
-                            </div>
-
-                            <div>
-                                <label class="block text-sm font-medium mb-2">Company</label>
-                                <input type="text" class="w-full px-4 py-3 bg-dark-700 border border-gray-600 rounded-lg focus:outline-none input-glow transition-all" placeholder="Your Company Name">
-                            </div>
-
-                            <div>
-                                <label class="block text-sm font-medium mb-2">Service Interest</label>
-                                <select class="w-full px-4 py-3 bg-dark-700 border border-gray-600 rounded-lg focus:outline-none input-glow transition-all">
-                                    <option>Select a service</option>
-                                    <option>AI Strategy & Consulting</option>
-                                    <option>Process Automation</option>
-                                    <option>Machine Learning Solutions</option>
-                                    <option>Data Analytics</option>
-                                    <option>Custom AI Development</option>
-                                    <option>Other</option>
-                                </select>
                             </div>
 
                             <div>
                                 <label class="block text-sm font-medium mb-2">Message *</label>
-                                <textarea rows="5" class="w-full px-4 py-3 bg-dark-700 border border-gray-600 rounded-lg focus:outline-none input-glow transition-all resize-none" placeholder="Tell us about your project and how we can help..."></textarea>
+                                <textarea rows="5" id="description" name="description" required class="w-full px-4 py-3 bg-dark-700 border border-gray-600 rounded-lg focus:outline-none input-glow transition-all resize-none" placeholder="Tell us about your project and how we can help..."></textarea>
                             </div>
 
-                            <div class="flex items-center space-x-3">
-                                <input type="checkbox" id="privacy" class="w-4 h-4 text-white bg-dark-700 border-gray-600 rounded focus:ring-white">
-                                <label for="privacy" class="text-sm text-gray-400">
-                                    I agree to the <a href="#" class="text-white hover:underline">Privacy Policy</a> and <a href="#" class="text-white hover:underline">Terms of Service</a>
-                                </label>
-                            </div>
-
-                            <button type="submit" class="w-full bg-white text-dark-900 py-4 px-8 rounded-lg font-semibold hover:bg-gray-100 transition-all transform hover:scale-105">
-                                Send Message
-                                <i class="fas fa-paper-plane ml-2"></i>
+                            <button type="submit" id="submit-btn" class="w-full bg-white text-dark-900 py-4 px-8 rounded-lg font-semibold hover:bg-gray-100 transition-all transform hover:scale-105">
+                                <span id="submit-text">Send Message</span>
+                                <i id="submit-icon" class="fas fa-paper-plane ml-2"></i>
                             </button>
                         </form>
                     </div>
                 </div>
 
                 <!-- Contact Information -->
-                <div class="space-y-6">
-                    <!-- Main Contact -->
-                    <div class="contact-info-card rounded-xl p-6">
-                        <div class="flex items-center space-x-3 mb-4">
-                            <div class="w-10 h-10 bg-white bg-opacity-10 rounded-lg flex items-center justify-center">
-                                <i class="fas fa-building text-white"></i>
-                            </div>
-                            <h3 class="text-xl font-semibold">Headquarters</h3>
-                        </div>
-                        <p class="text-gray-400 mb-2">123 Innovation Drive</p>
-                        <p class="text-gray-400 mb-2">Silicon Valley, CA 94025</p>
-                        <p class="text-gray-400">United States</p>
-                    </div>
-
-                    <!-- Phone -->
-                    <div class="contact-info-card rounded-xl p-6">
-                        <div class="flex items-center space-x-3 mb-4">
-                            <div class="w-10 h-10 bg-white bg-opacity-10 rounded-lg flex items-center justify-center">
-                                <i class="fas fa-phone text-white"></i>
-                            </div>
-                            <h3 class="text-xl font-semibold">Phone</h3>
-                        </div>
-                        <p class="text-gray-400 mb-1">+1 (555) 123-4567</p>
-                        <p class="text-sm text-gray-500">Mon-Fri 9AM-6PM PST</p>
-                    </div>
-
+                <!-- <div class="space-y-6"> -->
                     <!-- Email -->
-                    <div class="contact-info-card rounded-xl p-6">
+                    <!-- <div class="contact-info-card rounded-xl p-6">
                         <div class="flex items-center space-x-3 mb-4">
                             <div class="w-10 h-10 bg-white bg-opacity-10 rounded-lg flex items-center justify-center">
                                 <i class="fas fa-envelope text-white"></i>
@@ -269,10 +223,10 @@
                         <p class="text-gray-400 mb-1">hello@macrovision.ai</p>
                         <p class="text-gray-400 mb-1">support@macrovision.ai</p>
                         <p class="text-sm text-gray-500">24/7 Support Available</p>
-                    </div>
+                    </div> -->
 
                     <!-- Social Media -->
-                    <div class="contact-info-card rounded-xl p-6">
+                    <!-- <div class="contact-info-card rounded-xl p-6">
                         <div class="flex items-center space-x-3 mb-4">
                             <div class="w-10 h-10 bg-white bg-opacity-10 rounded-lg flex items-center justify-center">
                                 <i class="fas fa-share-alt text-white"></i>
@@ -284,20 +238,19 @@
                                 <i class="fab fa-linkedin text-white"></i>
                             </a>
                             <a href="#" class="w-10 h-10 bg-white bg-opacity-10 rounded-lg flex items-center justify-center hover:bg-opacity-20 transition-all">
-                                <i class="fab fa-twitter text-white"></i>
-                            </a>
-                            <a href="#" class="w-10 h-10 bg-white bg-opacity-10 rounded-lg flex items-center justify-center hover:bg-opacity-20 transition-all">
-                                <i class="fab fa-github text-white"></i>
+                                <i class="fab fa-instagram text-white"></i>
                             </a>
                         </div>
-                    </div>
-                </div>
+                    </div> -->
+                <!-- </div> -->
             </div>
         </div>
     </section>
 
+
+
     <!-- Map Section -->
-    <section class="py-20 relative">
+    <!-- <section class="py-20 relative">
         <div class="container mx-auto px-4">
             <div class="text-center mb-12">
                 <h2 class="text-3xl lg:text-4xl font-bold mb-4">Visit Our Office</h2>
@@ -305,7 +258,6 @@
             </div>
             
             <div class="relative rounded-2xl overflow-hidden h-96 bg-dark-700">
-                <!-- Placeholder for map - in real implementation, you'd use Google Maps or similar -->
                 <div class="absolute inset-0 map-overlay flex items-center justify-center">
                     <div class="text-center">
                         <div class="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -320,10 +272,10 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- FAQ Section -->
-    <section class="py-20 bg-dark-800">
+    <!-- <section class="py-20 bg-dark-800">
         <div class="container mx-auto px-4">
             <div class="text-center mb-12">
                 <h2 class="text-3xl lg:text-4xl font-bold mb-4">Frequently Asked Questions</h2>
@@ -372,12 +324,12 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- Footer -->
     <footer id="contact" class="bg-dark-900 border-t border-gray-800 pt-16 pb-8">
         <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div>
                     <div class="flex items-center space-x-2">
                         <img src="logo.png" alt="MacroVision Logo" class="w-8 h-8 rounded-md">
@@ -387,20 +339,10 @@
                         Real-time business intelligence tailored to your growth.
                     </p>
                     <div class="mt-6 flex space-x-4">
-                        <a href="#" class="text-gray-500 hover:text-primary transition"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" class="text-gray-500 hover:text-primary transition"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/company/macrovision-tech" class="text-gray-500 hover:text-primary transition"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://www.instagram.com/macrovision.io/" class="text-gray-500 hover:text-primary transition"><i class="fab fa-instagram"></i></a>
                         <!-- <a href="#" class="text-gray-500 hover:text-primary transition"><i class="fab fa-facebook"></i></a> -->
                     </div>
-                </div>
-                
-                <div>
-                    <h4 class="font-bold text-lg mb-3">Solutions</h4>
-                    <ul class="space-y-3">
-                        <li><a href="#" class="text-gray-500 hover:text-primary transition">AI Agents</a></li>
-                        <li><a href="#" class="text-gray-500 hover:text-primary transition">Data Integration</a></li>
-                        <li><a href="#" class="text-gray-500 hover:text-primary transition">Automation</a></li>
-                        <li><a href="#" class="text-gray-500 hover:text-primary transition">Dashboard Solutions</a></li>
-                    </ul>
                 </div>
                 
                 <!-- <div>
@@ -417,7 +359,6 @@
                     <h4 class="font-bold text-lg mb-3">Contact Us</h4>
                     <ul class="space-y-3">
                         <li class="text-gray-500"><i class="fas fa-envelope mr-2 text-primary"></i>contact@macrovision.io</li>
-                        <li class="text-gray-500"><i class="fas fa-phone mr-2 text-primary"></i>+961 70 832 510</li>
                         <li class="text-gray-500"><i class="fas fa-map-marker-alt mr-2 text-primary"></i>Beirut, Lebanon</li>
                     </ul>
                 </div>
@@ -426,8 +367,6 @@
             <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
                 <p class="text-gray-600">© 2025 MacroVision. All rights reserved.</p>
                 <div class="flex space-x-6 mt-4 md:mt-0">
-                    <a href="#" class="text-gray-600 hover:text-primary transition">Privacy Policy</a>
-                    <a href="#" class="text-gray-600 hover:text-primary transition">Terms of Service</a>
                     <a href="#" class="text-gray-600 hover:text-primary transition">Cookies</a>
                 </div>
             </div>
@@ -476,6 +415,114 @@
             
             closeMenu.addEventListener('click', function() {
                 mobileMenu.classList.add('hidden');
+            });
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('contact-form');
+            const messageDiv = document.getElementById('form-message');
+            const submitBtn = document.getElementById('submit-btn');
+            const submitText = document.getElementById('submit-text');
+            const submitIcon = document.getElementById('submit-icon');
+
+            // API endpoint
+            const API_URL = 'https://gd6phjtaav4nwfdoikozoa6ihu0qakuh.lambda-url.us-east-1.on.aws/';
+
+            // Show message function
+            function showMessage(message, isSuccess = true) {
+                messageDiv.className = `mb-6 p-4 rounded-lg ${isSuccess ? 'bg-green-600 text-white' : 'bg-red-600 text-white'}`;
+                messageDiv.textContent = message;
+                messageDiv.classList.remove('hidden');
+                
+                // Scroll to message
+                messageDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                
+                // Hide message after 5 seconds
+                setTimeout(() => {
+                    messageDiv.classList.add('hidden');
+                }, 5000);
+            }
+
+            // Set loading state
+            function setLoading(isLoading) {
+                if (isLoading) {
+                    submitBtn.disabled = true;
+                    submitBtn.classList.add('opacity-50', 'cursor-not-allowed');
+                    submitText.textContent = 'Sending...';
+                    submitIcon.className = 'fas fa-spinner fa-spin ml-2';
+                } else {
+                    submitBtn.disabled = false;
+                    submitBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+                    submitText.textContent = 'Send Message';
+                    submitIcon.className = 'fas fa-paper-plane ml-2';
+                }
+            }
+
+            // Form submission handler
+            form.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                // Get form data
+                const formData = new FormData(form);
+                const data = {
+                    firstName: formData.get('firstName').trim(),
+                    lastName: formData.get('lastName').trim(),
+                    email: formData.get('email').trim(),
+                    phone: formData.get('phone').trim(),
+                    description: formData.get('description').trim()
+                };
+
+                // Basic validation
+                if (!data.firstName || !data.lastName || !data.email || !data.description) {
+                    showMessage('Please fill in all required fields.', false);
+                    return;
+                }
+
+                // Email validation
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(data.email)) {
+                    showMessage('Please enter a valid email address.', false);
+                    return;
+                }
+
+                // Privacy policy check (commented out)
+                // if (!document.getElementById('privacy').checked) {
+                //     showMessage('Please agree to the Privacy Policy and Terms of Service.', false);
+                //     return;
+                // }
+
+                setLoading(true);
+
+                try {
+                    console.log('Submitting form with data:', data);
+                    
+                    // Send data to API
+                    const response = await fetch(API_URL, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(data)
+                    });
+
+                    console.log('Response status:', response.status);
+
+                    const result = await response.json();
+
+                    if (response.ok && result.success) {
+                        showMessage('Thank you! Your message has been sent successfully. We\'ll get back to you soon.', true);
+                        form.reset(); // Clear the form
+                    } else {
+                        throw new Error(result.error || 'Failed to send message');
+                    }
+
+                } catch (error) {
+                    console.error('Error submitting form:', error);
+                    showMessage('Sorry, there was an error sending your message. Please try again later.', false);
+                } finally {
+                    setLoading(false);
+                }
             });
         });
     </script>
